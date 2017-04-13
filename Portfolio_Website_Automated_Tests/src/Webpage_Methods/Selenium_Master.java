@@ -339,5 +339,6 @@ public class Selenium_Master
         return driver.findElement(By.xpath(xpath)).getText();
     }
     
-    public static Resume Resume_Page = Resume.instance;
+    public Resume Resume_Page = Resume.instance;
+    public Index = Index_Page = Index.instance;
 }
