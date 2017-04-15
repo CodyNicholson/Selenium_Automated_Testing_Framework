@@ -39,7 +39,7 @@ public class Results_Generator
             String time = timeFormat.format(timeObj);
 
             //Create excel file with date included in the title
-            String fileName = strategy.createTestResultSpreadsheetPath() + testSuiteName + "_" + time + ".xls" ;
+            String fileName = strategy.getTestResultPath() + testSuiteName + "_" + time + ".xls" ;
 
             //Create the workbook and sheet
             HSSFWorkbook workbook = new HSSFWorkbook();

@@ -1,39 +1,40 @@
 package Webpage_Methods.Portfolio_Website.Pages;
 
-/**
- * Created by cad6025 on 2/6/2017.
- */
-
 import Webpage_Methods.Portfolio_Website.Portfolio_Master;
-import Webpage_Methods.Selenium_Master;
-import org.openqa.selenium.*;
 
 public class Index extends Portfolio_Master {
 
     public static Index instance = new Index();
 
-    public void setAccountNumAndSearchInPolicyAndAccount(String accountNumber)
+    public void clickResumeButton()
     {
-        waitForElement("//table[@id='basicTable']//tbody//tr[1]//td[2]//input[@name='ACCOUNT_NUMBER']", 5);
-        driver.findElement(By.xpath("//table[@id='basicTable']//tbody//tr[1]//td[2]//input[@name='ACCOUNT_NUMBER']")).sendKeys(accountNumber);
-        driver.findElement(By.xpath("//table[@id='basicTable']//img[@alt='Find']")).click();
+        clickElement("//a[@class='resume']");
     }
 
-    public void clickFirstAccountNumInPolicyAccountSearchResults()
+    public void clickGithubButton()
     {
-        waitForElement("//*[@id='TABLE_11']/tbody/tr[2]/td[1]");
-        driver.findElement(By.xpath("//*[@id='TABLE_11']/tbody/tr[2]/td[1]")).click();
+        clickElement("//a[@class='github']");
+        switchToTab(1);
     }
 
-    public void clickAutoUnderLobSideNav()
+    public void clickLinkedInButton()
     {
-        waitForElement("//*[@id='Nav3']/a");
-        driver.findElement(By.xpath("//*[@id='Nav3']/a")).click();
+        clickElement("//a[@class='linkedin']");
+        switchToTab(1);
     }
 
-    public String getUSDotNumberPolicyInfoRST()
+    public void clickContactMeButton()
     {
-        isElementPresent("/*//*[@id='TABLE_59']/tbody/tr[1]/td");
-        return driver.findElement(By.xpath("/*//*[@id='TABLE_59']/tbody/tr[1]/td")).getText();
+        clickElement("//a[@class='email']");
+    }
+
+    public String getWelcomeMessage()
+    {
+        return getTextFromElement("//p[@class='title_super']");
+    }
+
+    public boolean isContactMeModelDisplayed()
+    {
+        return isDisplayed("//div[@class='modal-content']");
     }
 }

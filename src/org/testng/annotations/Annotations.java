@@ -16,9 +16,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Created by cad5124 on 12/7/2016.
- */
 public class Annotations
 {
     public WebDriver driver = null;

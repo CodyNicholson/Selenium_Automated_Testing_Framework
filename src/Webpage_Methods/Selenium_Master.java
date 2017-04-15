@@ -1,8 +1,6 @@
 package Webpage_Methods;
 
 // Java imports
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDate;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -24,20 +22,19 @@ import org.apache.poi.ss.usermodel.DataFormatter;
 
 // User imports
 import Users.strategyContext;
-//import Users.strategies.joeStrategy;
 
 import org.testng.Assert;
-
-/**
- * Created by CAD4702 on 9/8/2016.
- */
 
 public class Selenium_Master
 {
     // Singleton setup
-    public Webpage_Methods.Selenium_Master user = this;
-    private static Webpage_Methods.Selenium_Master instance = null;
+
     protected Selenium_Master(){}
+
+    public Selenium_Master user = this;
+
+    private static Webpage_Methods.Selenium_Master instance = null;
+
     public static Webpage_Methods.Selenium_Master getInstance()
     {
         if (instance == null)
@@ -47,28 +44,13 @@ public class Selenium_Master
         return instance;
     }
 
-    private strategyContext context = new strategyContext();
-    private String accountNumber;
-    private int numAccountsToCreateFromExcelDoc = 0;
-
-    public void setNumAccountsToCreateFromExcelDoc(int num){this.numAccountsToCreateFromExcelDoc = num;}
-
-    public int getNumAccountsToCreateFromExcelDoc() {
-        return numAccountsToCreateFromExcelDoc;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
 
 
     // Setting up WebDriver
 
     public static WebDriver driver;
+
+    private strategyContext context = new strategyContext();
 
     public WebDriver getWebDriver()
     {
@@ -105,133 +87,22 @@ public class Selenium_Master
 
     public void closeTab()
     {
-        ArrayList<String> tabs = new ArrayList<> (driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
         driver.close();
+        switchToTab(0);
     }
 
     public void refreshPage() {
         driver.navigate().refresh();
     }
 
-
-
-
-    public void goToEpcEnvAndLogin(String envURL, String userName)
+    public void setUpSeleniumWebdriverForTesting(String url)
     {
-        webDriver(envURL);
-        if(isElementPresent("//form[@name='loginForm']"))
-        {
-            goToUrl(envURL);
-            loginEPC(userName);
-        }
-        else
-        {
-            clickDesktopTabInEpcHeaderToolbar();
-        }
-        waitForElement("//span[@class='g-title'][@id='DesktopActivities:DesktopActivitiesScreen:0']");
-        waitForPageToLoad(5);
-    }
-
-    public void goToCnacEnvAndLogin(String envURL, String userName, String password)
-    {
-        webDriver(envURL);
-        goToUrl(envURL);
-        loginCNAC(userName, password);
-        waitForPageToLoad(5);
-    }
-
-    public static boolean isElementPresent(String xpath)
-    {
-        try
-        {
-            driver.findElement(By.xpath(xpath));
-            return true;
-        }
-        catch (NoSuchElementException e)
-        {
-            //e.printStackTrace();
-            return false;
-        }
-    }
-
-    public String getCurrentDate()
-    {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
-        LocalDate localDate = LocalDate.now();
-        return dtf.format(localDate);
-    }
-
-    public String getCurrentDatePlusOneDay()
-    {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate localDate = LocalDate.now().plusDays(1);
-        return dtf.format(localDate);
-    }
-
-    public void loginEPC(String username)
-    {
-        driver.findElement(By.xpath("//form//input[@name='username']")).sendKeys(username);
-        driver.findElement(By.xpath("//form//input[@name='password']")).sendKeys("cna123");
-        try
-        {
-            driver.findElement(By.xpath("//form//button[@name='login']")).click();
-        }
-        catch (NoSuchElementException e)
-        {
-            driver.findElement(By.xpath("//form//input[@name='loginEPC']")).click();
-        }
-    }
-
-    public void loginCNAC(String username, String password)
-    {
-        driver.findElement(By.xpath("//form//input[@name='userid']")).sendKeys(username);
-        driver.findElement(By.xpath("//form//input[@name='password']")).sendKeys(password);
-        driver.findElement(By.xpath("//form//a[@id='ccBtnLogin']")).click();
-    }
-
-    public String getCurrentDatePlusOneDayPlusOneYear()
-    {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate localDate = LocalDate.now().plusDays(1);
-        localDate = localDate.plusYears(1);
-        return dtf.format(localDate);
-    }
-
-    public String getCurrentDatePlusTwoYears()
-    {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate localDate = LocalDate.now().plusDays(1);
-        localDate = localDate.plusYears(2);
-        return dtf.format(localDate);
-    }
-
-    public void goToUrl(String envURL)
-    {
-        driver.get(envURL);
-        try
-        {
-            Alert alt = driver.switchTo().alert();
-            alt.accept();
-        }
-        catch (Exception e) {}
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
-    public void clickSearchTab()
-    {
-        waitForElement("//span[@id='TabBar:SearchTab-btnInnerEl']");
-        try {
-            driver.findElement(By.xpath("//span[@id='TabBar:SearchTab-btnInnerEl']")).click();
-        }
-        catch (WebDriverException e)
-        {
-            waitFor(2);
-            clickSearchTab();
-        }
+        webDriver(url);
     }
 
 
+
+    // Wait for elements to load or to be displayed
 
     public void waitFor(int numSeconds)
     {
@@ -250,23 +121,7 @@ public class Selenium_Master
         driver.manage().timeouts().pageLoadTimeout(waitTime, TimeUnit.SECONDS);
     }
 
-    public void takeScreenshot(String name)
-    {
-        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        File targetFile = new File("Results/Failure_Screenshots/" +name+".jpg");
-
-        try
-        {
-            FileUtils.copyFile(srcFile, targetFile);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void waitForElement(String xpath)
+    public void waitForElementCode(String xpath)
     {
         for(int i = 0; i <= 10; i++)
         {
@@ -284,7 +139,7 @@ public class Selenium_Master
         Assert.fail();
     }
 
-    public void waitForElement(String xpath, Integer waitTime)
+    public void waitForElementCode(String xpath, Integer waitTime)
     {
         for(int i = 0; i <= waitTime; i++)
         {
@@ -329,7 +184,7 @@ public class Selenium_Master
                 if(driver.findElement(By.xpath(xpath)).isDisplayed())
                     return;
             }
-            catch (NoSuchElementException e)
+            catch (Exception e)
             {
                 waitFor(1);
             }
@@ -347,6 +202,137 @@ public class Selenium_Master
         }
     }
 
+
+
+    // Handling frame elements
+
+    public void switchToDefaultContext()
+    {
+        driver.switchTo().defaultContent();
+    }
+
+    public void switchToIFrame(String nameOrXpath)
+    {
+        driver.switchTo().frame(nameOrXpath);
+    }
+
+
+
+    // Working with elements
+
+    public void clickElement(String xpath, int searchTime)
+    {
+        waitForElementToBeDisplayed(xpath);
+        for(int i = 0; i < searchTime; i++) {
+            try {
+                driver.findElement(By.xpath(xpath)).click();
+                return;
+            } catch (WebDriverException e) {
+                waitFor(1);
+            }
+            System.out.println("Element did not appear: " + xpath);
+        }
+    }
+
+    public void clickElement(String xpath)
+    {
+        waitForElementToBeDisplayed(xpath);
+        for(int i = 0; i < 10; i++) {
+            try {
+                driver.findElement(By.xpath(xpath)).click();
+                return;
+            } catch (WebDriverException e) {
+                waitFor(1);
+            }
+        }
+        System.out.println("Element did not appear: " + xpath);
+    }
+
+    public static boolean isPresent(String xpath)
+    {
+        try
+        {
+            driver.findElement(By.xpath(xpath));
+            return true;
+        }
+        catch (NoSuchElementException e)
+        {
+            //e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean isSelected(String xpath)
+    {
+        return driver.findElement(By.xpath(xpath)).isSelected();
+    }
+
+    public boolean isEnabled(String xpath)
+    {
+        return driver.findElement(By.xpath(xpath)).isEnabled();
+    }
+
+    public boolean isDisplayed(String xpath)
+    {
+        waitFor(2);
+        return driver.findElement(By.xpath(xpath)).isDisplayed();
+    }
+
+    public void sendTextToElement(String xpath, String text)
+    {
+        driver.findElement(By.xpath(xpath)).sendKeys(text);
+    }
+
+    public String getTextFromElement(String xpath)
+    {
+        return driver.findElement(By.xpath(xpath)).getText();
+    }
+
+
+
+    // Utilities
+
+    public void printLogMessage(String message)
+    {
+        System.out.println(message);
+    }
+
+    public void goToUrl(String envURL)
+    {
+        driver.get(envURL);
+    }
+
+    public void takeScreenshot(String name)
+    {
+        File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File targetFile = new File("Results/Failure_Screenshots/" +name+".jpg");
+
+        try
+        {
+            FileUtils.copyFile(srcFile, targetFile);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public String getCurrentUrl()
+    {
+        return driver.getCurrentUrl();
+    }
+
+    public void switchToTab(int i)
+    {
+        waitFor(2);
+        ArrayList<String> tabs = new ArrayList<> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(i));
+    }
+
+
+
+    // Read data from excel sheet to use in test cases
+
     public ArrayList<List<String>> readExcelFileRows(String file)
     {
         try
@@ -362,7 +348,6 @@ public class Selenium_Master
             int cols = 0; // No of columns
             int tmp;
             ArrayList<List<String>> rowList = new ArrayList<>();
-            setNumAccountsToCreateFromExcelDoc(rows - 1);
 
             // This trick ensures that we get the data properly even if it doesn't start from first few rows
             for(int i = 0; i < 10 || i < rows; i++)
@@ -401,141 +386,5 @@ public class Selenium_Master
             System.out.println("Could not find Excel doc");
         }
         return null;
-    }
-
-    public void clickActionsDropDownMenuFromDesktop()
-    {
-        waitForElementToBeDisplayedAndClickableThenClick("//span[@id='Desktop:DesktopMenuActions-btnInnerEl']");
-    }
-
-    public void clickNewSubmissionInActionsDropDownMenuOnDesktop()
-    {
-        driver.findElement(By.id("Desktop:DesktopMenuActions:DesktopMenuActions_Create:DesktopMenuActions_NewSubmission-textEl")).click();
-    }
-
-    public void clickDesktopTabInEpcHeaderToolbar()
-    {
-        try
-        {
-            driver.findElement(By.xpath("//span[@id='TabBar:DesktopTab-btnInnerEl']")).click();
-        }
-        catch (NoSuchElementException e)
-        {
-            switchToDefaultContext();
-            driver.findElement(By.xpath("//span[@id='TabBar:DesktopTab-btnInnerEl']")).click();
-        }
-    }
-
-    public void switchToDefaultContext()
-    {
-        driver.switchTo().defaultContent();
-    }
-
-    /**
-     * Will try to click element every second for however many seconds you input, default is 10
-     * @param xpath
-     * @param seconds
-     */
-    public void waitForElementToBeDisplayedAndClickableThenClick(String xpath, int seconds)
-    {
-        waitForElementToBeDisplayed(xpath);
-        for(int i = 0; i < seconds; i++) {
-            try {
-                driver.findElement(By.xpath(xpath)).click();
-                return;
-            } catch (WebDriverException e) {
-                waitFor(1);
-            }
-            System.out.println("Element did not appear: " + xpath);
-        }
-    }
-
-    /**
-     * Will try to click element every second for 10 seconds
-     * @param xpath
-     */
-    public void waitForElementToBeDisplayedAndClickableThenClick(String xpath)
-    {
-        waitForElementToBeDisplayed(xpath);
-        for(int i = 0; i < 10; i++) {
-            try {
-                driver.findElement(By.xpath(xpath)).click();
-                return;
-            } catch (WebDriverException e) {
-                waitFor(1);
-            }
-        }
-        System.out.println("Element did not appear: " + xpath);
-    }
-
-    public boolean isCorrectText(String expectedText, String xpath)
-    {
-        String actualText = driver.findElement(By.xpath(xpath)).getText();
-        if (actualText.equals(expectedText))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public void tryToSetTextField(String text, String xpath, int seconds)
-    {
-        for(int i = 0; i < seconds; i++) {
-            try {
-                driver.findElement(By.xpath(xpath)).sendKeys(text);
-                return;
-            } catch (Exception e)
-            {
-                waitFor(1);
-            }
-        }
-    }
-
-    public void tryToSetTextField(String text, String xpath)
-    {
-        for(int i = 0; i < 10; i++) {
-            try {
-                driver.findElement(By.xpath(xpath)).sendKeys(text);
-                return;
-            } catch (Exception e)
-            {
-                waitFor(1);
-            }
-        }
-    }
-
-    public boolean isSelected(String xpath)
-    {
-        return driver.findElement(By.xpath(xpath)).isSelected();
-    }
-
-    public boolean isEnabled(String xpath)
-    {
-        return driver.findElement(By.xpath(xpath)).isEnabled();
-    }
-
-    public boolean isDisplayed(String xpath)
-    {
-        return driver.findElement(By.xpath(xpath)).isDisplayed();
-    }
-
-    public void sendTextToElement(String xpath, String text)
-    {
-        driver.findElement(By.xpath(xpath)).sendKeys(text);
-    }
-
-    public String getTextFromElement(String xpath)
-    {
-        return driver.findElement(By.xpath(xpath)).getText();
-    }
-
-    public void switchToIFrame(String nameOrXpath)
-    {
-        driver.switchTo().frame(nameOrXpath);
-    }
-
-    public void printLogMessage(String message)
-    {
-        System.out.println(message);
     }
 }

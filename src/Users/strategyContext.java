@@ -2,10 +2,6 @@ package Users;
 
 import Users.strategies.codyStrategy;
 
-/**
- * Created by cad6025 on 2/2/2017.
- */
-
 public class strategyContext {
 
     /*********************************************
@@ -37,28 +33,9 @@ public class strategyContext {
         return strategy.getIEApplicationPath();
     }
 
-    public String createAccountPath() {
-        return strategy.getCreateAccountPath();
-    }
-
-    public String createPolicyPath() {
-        return strategy.getCreatePolicyPath();
-    }
-
-    public String addDocumentPath()
+    public String getTestResultPath()
     {
-        return strategy.getAddDocumentPath();
+        return strategy.getTestResultsPath();
     }
 
-    public String createTestResultSpreadsheetPath()
-    {
-        return strategy.getCreateTestResultSpreadsheetPath();
-    }
-
-    public String TestCheckInCheckOutPath_DMF_Smoke_Test()
-    {
-        return strategy.getTestCheckInCheckOutPath_DMF_Smoke_Test();
-    }
-
-    public String TestDistributePath_DMF_Smoke_Test() { return strategy.getTestDistributePath_DMF_Smoke_Test(); }
 }

@@ -8,11 +8,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import java.lang.reflect.Method;
 import org.testng.annotations.*;
-import org.testng.annotations.Test;
 
-/**
- * Created by CAD5124 on 3/2/2017.
- */
 public class Portfolio_Website_Smoke_Test
 {
     private final Portfolio_Master user      = new Portfolio_Master();
@@ -21,24 +17,83 @@ public class Portfolio_Website_Smoke_Test
 
     // Excel strings
     private String testName         = "";
-    private String failureDetails   = "";
     private String parentName       = "";
+    private String expectedResult   = "";
+    private String actualResult     = "";
+    private String failureDetails   = "";
 
-    // Environment variables
-    private String environmentURL   = "https://ete6-papc.cna.com/pc/policycenter.do";
 
     // Runtime
     private long runTime;
     private long totalRuntime;
 
-    /**************************
-     ***     Smoke Tests     ***
-     **************************/
+     /*************************
+     ***     Smoke Test     ***
+     *************************/
+
+     String envUrl = "https://codynicholson.github.io/";
 
     @Test
-    public void testViewDocument_1() {
+    public void testIndexPageButtons() {
         parentName = "Portfolio_Smoke_Test";
 
+        user.setUpSeleniumWebdriverForTesting(envUrl);
+
+        //ER1
+        expectedResult = "https://codynicholson.github.io/";
+        actualResult = user.getCurrentUrl();
+        failureDetails = "ER1: Did not go to the correct url after starting the test case. Expected: " + expectedResult + ", Actual: " + actualResult;
+        Assert.assertTrue(expectedResult.equals(actualResult), failureDetails);
+
+        //ER2
+        expectedResult = "Welcome";
+        actualResult = user.Index_Page.getWelcomeMessage();
+        failureDetails = "ER2: The index page welcome message was incorrect. Expected: " + expectedResult + ", Actual: " + actualResult;
+        Assert.assertTrue(expectedResult.equals(actualResult), failureDetails);
+
+        user.Index_Page.clickResumeButton();
+
+        //ER3
+        expectedResult = "https://codynicholson.github.io/views/resume.html";
+        actualResult = user.getCurrentUrl();
+        failureDetails = "ER3: The url address was incorrect after clicking the 'Resume' button. Expected: " + expectedResult + ", Actual: " + actualResult;
+        Assert.assertTrue(expectedResult.equals(actualResult), failureDetails);
+
+        //ER4
+        expectedResult = "Cody Nicholson";
+        actualResult = user.Resume_Page.getTitleHeader();
+        failureDetails = "ER4: The resume page title text was incorrect. Expected: " + expectedResult + ", Actual: " + actualResult;
+        Assert.assertTrue(expectedResult.equals(actualResult),failureDetails);
+
+        user.goToPortfolioWebsite();
+        user.Index_Page.clickGithubButton();
+
+        //ER5
+        expectedResult = "https://github.com/CodyNicholson";
+        actualResult = user.getCurrentUrl();
+        failureDetails = "ER5: The url address was incorrect after clicking the 'Github' button. Expected: " + expectedResult + ", Actual: " + actualResult;
+        Assert.assertTrue(expectedResult.equals(actualResult), failureDetails);
+
+        user.closeTab();
+        user.Index_Page.clickLinkedInButton();
+
+        //ER6
+        expectedResult = "https://www.linkedin.com/in/codynicholson";
+        actualResult = user.getCurrentUrl();
+        failureDetails = "ER6: The url address was incorrect after clicking the 'LinkedIn' button. Expected: " + expectedResult + ", Actual: " + actualResult;
+        //Assert.assertTrue(expectedResult.equals(actualResult), failureDetails);
+
+        user.closeTab();
+
+        //ER7
+        failureDetails = "ER7: The 'Contact Me' model was displayed before clicking the 'Contact Me' button";
+        Assert.assertFalse(user.Index_Page.isContactMeModelDisplayed(), failureDetails);
+
+        user.Index_Page.clickContactMeButton();
+
+        //ER8
+        failureDetails = "ER8: The 'Contact Me' model did not display after clicking the 'Contact Me' button";
+        Assert.assertTrue(user.Index_Page.isContactMeModelDisplayed(), failureDetails);
     }
 
     /**********************
@@ -46,19 +101,21 @@ public class Portfolio_Website_Smoke_Test
      **********************/
 
     @AfterTest
-    void writeToExcelFile() {
+    void afterAllTestsCompleteDoThis()
+    {
         excelCreator.setTotalRuntime(Long.toString(totalRuntime));
         excelCreator.setClassName(this.getClass().getName());
         excelCreator.createTestResultsSpreadsheet();
     }
 
     @BeforeMethod
-    public void message(Method method)
+    public void beforeEachTestDoThis(Method method)
     {
         testName = method.getName();
     }
 
-    @AfterMethod(alwaysRun = true) public void doThisAfter(ITestResult result) {
+    @AfterMethod(alwaysRun = true) public void afterEachTestDoThis(ITestResult result)
+    {
         runTime = ((result.getEndMillis() - result.getStartMillis()) / 1000);
         totalRuntime += runTime;
         excelCreator.getTestCaseRuntimes().add(Long.toString(runTime));

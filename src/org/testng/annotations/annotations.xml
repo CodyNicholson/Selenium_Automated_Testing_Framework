@@ -2,9 +2,7 @@
 <suite name="Portal [template name] Automation">
     <test name="Template Name" preserve-order="true">
         <classes>
-            <class name="Applications.AddPoliciesToExistingAccounts.Add_Policy_Main"/>
-            <class name="Applications.CreateAccount.Create_Account_Main"/>
-            <class name="Applications.DmfMasterTester.DmfSmokeTest.DMF_Smoke_Test"/>
+            <class name="Applications.Portfolio_Website.Portfolio_Website_Smoke_Test"/>
         </classes>
     </test>
 </suite>
