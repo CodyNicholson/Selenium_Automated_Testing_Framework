@@ -1,2 +1,3 @@
 # Selenium_Functional_Automated_Testing
-Selenium functional automated testing for my portfolio website
+
+Selenium functional automated testing framework for web applications

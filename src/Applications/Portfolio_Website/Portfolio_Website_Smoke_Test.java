@@ -156,6 +156,6 @@ public class Portfolio_Website_Smoke_Test
             excelCreator.getTestCaseResults().add("N/A");
         }
         failureDetails = "";
-        //user.closeBrowser();
+        user.closeBrowser();
     }
 }
