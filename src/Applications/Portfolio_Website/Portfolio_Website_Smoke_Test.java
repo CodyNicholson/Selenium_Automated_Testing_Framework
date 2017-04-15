@@ -27,17 +27,17 @@ public class Portfolio_Website_Smoke_Test
     private long runTime;
     private long totalRuntime;
 
-     /*************************
-     ***     Smoke Test     ***
-     *************************/
+    /*************************
+    ***     Smoke Test     ***
+    *************************/
 
-     String envUrl = "https://codynicholson.github.io/";
+    String envUrl = "https://codynicholson.github.io/";
 
     @Test
     public void testIndexPageButtons() {
         parentName = "Portfolio_Smoke_Test";
 
-        user.setUpSeleniumWebdriverForTesting(envUrl);
+        user.goToPortfolioWebsite();
 
         //ER1
         expectedResult = "https://codynicholson.github.io/";
@@ -78,10 +78,10 @@ public class Portfolio_Website_Smoke_Test
         user.Index_Page.clickLinkedInButton();
 
         //ER6
-        expectedResult = "https://www.linkedin.com/in/codynicholson";
+        expectedResult = "https://www.linkedin.com/in/codynicholson/";
         actualResult = user.getCurrentUrl();
         failureDetails = "ER6: The url address was incorrect after clicking the 'LinkedIn' button. Expected: " + expectedResult + ", Actual: " + actualResult;
-        //Assert.assertTrue(expectedResult.equals(actualResult), failureDetails);
+        Assert.assertTrue(expectedResult.contains(actualResult), failureDetails);
 
         user.closeTab();
 
@@ -96,12 +96,30 @@ public class Portfolio_Website_Smoke_Test
         Assert.assertTrue(user.Index_Page.isContactMeModelDisplayed(), failureDetails);
     }
 
+    @Test
+    public void testIndexPageContactMe() {
+        parentName = "Portfolio_Smoke_Test";
+
+        user.goToPortfolioWebsite();
+        user.Index_Page.clickContactMeButton();
+
+        //ER8
+        failureDetails = "ER8: The 'Contact Me' model did not display after clicking the 'Contact Me' button";
+        Assert.assertTrue(user.Index_Page.isContactMeModelDisplayed(), failureDetails);
+    }
+
     /**********************
      ***   Annotations   ***
      **********************/
 
+    @BeforeTest
+    void doThisBeforeRunningAnyTests()
+    {
+        user.setupWebDriverForChromeTesting();
+    }
+
     @AfterTest
-    void afterAllTestsCompleteDoThis()
+    void doThisAfterAllTestsFinish()
     {
         excelCreator.setTotalRuntime(Long.toString(totalRuntime));
         excelCreator.setClassName(this.getClass().getName());
@@ -109,12 +127,12 @@ public class Portfolio_Website_Smoke_Test
     }
 
     @BeforeMethod
-    public void beforeEachTestDoThis(Method method)
+    public void doThisBeforeEachTestStarts(Method method)
     {
         testName = method.getName();
     }
 
-    @AfterMethod(alwaysRun = true) public void afterEachTestDoThis(ITestResult result)
+    @AfterMethod(alwaysRun = true) public void doThisAfterEachTestFinishes(ITestResult result)
     {
         runTime = ((result.getEndMillis() - result.getStartMillis()) / 1000);
         totalRuntime += runTime;
@@ -138,6 +156,6 @@ public class Portfolio_Website_Smoke_Test
             excelCreator.getTestCaseResults().add("N/A");
         }
         failureDetails = "";
-        user.closeBrowser();
+        //user.closeBrowser();
     }
 }

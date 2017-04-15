@@ -23,6 +23,9 @@ import org.apache.poi.ss.usermodel.DataFormatter;
 // User imports
 import Users.strategyContext;
 
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.testng.Assert;
 
 public class Selenium_Master
@@ -57,27 +60,27 @@ public class Selenium_Master
         return driver;
     }
 
-    public void webDriver(String getURL)
-    {
-        this.setWebDriver(driver);
-        this.getWebDriver().get(getURL);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
-    public void setWebDriver(WebDriver webDriver)
+    public void setupWebDriverForChromeTesting()
     {
         System.setProperty("webdriver.chrome.driver", "jars/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
-
-        // Set the binary for chrome, refactor this in the future to allow different browsers
         chromeOptions.setBinary(context.chromeApplicationPath());
-        WebDriver driver = new ChromeDriver(chromeOptions);
-        //driver.manage().window().maximize();
-        webDriver = driver;
+        driver = new ChromeDriver(chromeOptions);
+    }
 
-        //Set driver to webDriver and pass into this class public Webdriver driver;
-        this.driver = webDriver;
+    public void setupWebDriverForIETesting()
+    {
+
+    }
+
+    public void setupWebDriverForFirefoxTesting()
+    {
+        /* Does not work yet */
+        //ProfilesIni profile = new ProfilesIni();
+        //FirefoxProfile myProfile = profile.getProfile("Automated_Testing_Profile");
+        //driver = new FirefoxDriver(myProfile);
+        //driver.manage().window().maximize();
     }
 
     public void closeBrowser()
@@ -93,11 +96,6 @@ public class Selenium_Master
 
     public void refreshPage() {
         driver.navigate().refresh();
-    }
-
-    public void setUpSeleniumWebdriverForTesting(String url)
-    {
-        webDriver(url);
     }
 
 
@@ -305,7 +303,7 @@ public class Selenium_Master
     public void takeScreenshot(String name)
     {
         File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        File targetFile = new File("Results/Failure_Screenshots/" +name+".jpg");
+        File targetFile = new File("src/Results/Failure_Screenshots/" +name+".jpg");
 
         try
         {

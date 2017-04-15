@@ -21,6 +21,14 @@ public class Index extends Portfolio_Master {
     {
         clickElement("//a[@class='linkedin']");
         switchToTab(1);
+
+        if(getCurrentUrl().contains("login_reg_redirect"))
+        {
+            LinkedIn_Page.clickSignInOnRedirect();
+            LinkedIn_Page.setUserNameOnSignIn("codynicholson96@gmail.com");
+            LinkedIn_Page.setPasswordOnSignIn("138599");
+            LinkedIn_Page.clickSignInOnSignIn();
+        }
     }
 
     public void clickContactMeButton()
