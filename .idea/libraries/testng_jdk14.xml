@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="testng-jdk14">
+    <ANNOTATIONS>
+      <root url="file://$PROJECT_DIR$/src" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/TestNG-J_3670/testngrunner/lib/testng-jdk15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/TestNG-J_3670/testngrunner/lib/testngrunner.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jars/TestNG-J_3670/testngrunner/testng/testng-jdk14.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

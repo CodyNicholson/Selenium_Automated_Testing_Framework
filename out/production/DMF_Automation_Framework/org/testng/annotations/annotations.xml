@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Portal [template name] Automation">
+    <test name="Template Name" preserve-order="true">
+        <classes>
+            <class name="Applications.AddPoliciesToExistingAccounts.Add_Policy_Main"/>
+            <class name="Applications.CreateAccount.Create_Account_Main"/>
+            <class name="Applications.DmfMasterTester.DmfSmokeTest.DMF_Smoke_Test"/>
+        </classes>
+    </test>
+</suite>

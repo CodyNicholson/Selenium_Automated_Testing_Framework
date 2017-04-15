@@ -1,7 +1,6 @@
 package Users;
 
 import Users.strategies.codyStrategy;
-import Users.strategies.joeStrategy;
 
 /**
  * Created by cad6025 on 2/2/2017.

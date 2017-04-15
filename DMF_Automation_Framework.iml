@@ -10,7 +10,6 @@
     <orderEntry type="library" name="client-combined-3.0.0-beta2-nodeps" level="project" />
     <orderEntry type="library" name="commons-io-2.5-javadoc" level="project" />
     <orderEntry type="library" name="testng-jdk14" level="project" />
-    <orderEntry type="library" name="commons-codec-1.10" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -20,5 +19,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="selenium-server-standalone-3.3.1" level="project" />
+    <orderEntry type="library" name="commons-codec-1.10" level="project" />
   </component>
 </module>

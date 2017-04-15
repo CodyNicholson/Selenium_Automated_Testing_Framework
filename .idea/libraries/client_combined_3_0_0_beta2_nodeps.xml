@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="client-combined-3.0.0-beta2-nodeps">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jars/selenium-server-standalone-2.53.0/selenium-server-standalone-2.53.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
