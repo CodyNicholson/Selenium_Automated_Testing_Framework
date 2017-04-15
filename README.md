@@ -1,3 +1,3 @@
-# Selenium_Functional_Automated_Testing
+# Selenium Functional Automated Testing
 
 Selenium functional automated testing framework for web applications
