@@ -21,14 +21,6 @@ public class Index extends Portfolio_Master {
     {
         clickElement("//a[@class='linkedin']");
         switchToTab(1);
-
-        if(getCurrentUrl().contains("login_reg_redirect"))
-        {
-            LinkedIn_Page.clickSignInOnRedirect();
-            LinkedIn_Page.setUserNameOnSignIn("codynicholson96@gmail.com");
-            LinkedIn_Page.setPasswordOnSignIn("138599");
-            LinkedIn_Page.clickSignInOnSignIn();
-        }
     }
 
     public void clickContactMeButton()
@@ -43,6 +35,38 @@ public class Index extends Portfolio_Master {
 
     public boolean isContactMeModelDisplayed()
     {
+        //waitFor(2); // Wait for model to close after clicking submit button
         return isDisplayed("//div[@class='modal-content']");
+    }
+
+    public void setNameInContactMe(String name)
+    {
+        sendTextToElement("//input[@id='Name']", name);
+    }
+
+    public void setMessageInContactMe(String message)
+    {
+        sendTextToElement("//textarea[@id='Message']", message);
+    }
+
+    public void setEmailInContactMe(String email)
+    {
+        sendTextToElement("//input[@id='Contact']", email);
+    }
+
+    public void setFeedbackInContactMe(String feedback)
+    {
+        sendTextToElement("//textarea[@id='Feedback']", feedback);
+    }
+
+    public void clickSubmit()
+    {
+        clickElement("//input[@name='submit']");
+    }
+
+    public void clickIAmNotARobot()
+    {
+        clickElement("//span[@id='recaptcha-anchor']");
+        waitFor(3);
     }
 }

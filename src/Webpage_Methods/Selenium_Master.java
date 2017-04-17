@@ -32,7 +32,7 @@ public class Selenium_Master
 {
     // Singleton setup
 
-    protected Selenium_Master(){}
+    public Selenium_Master(){}
 
     public Selenium_Master user = this;
 
@@ -298,6 +298,7 @@ public class Selenium_Master
     public void goToUrl(String envURL)
     {
         driver.get(envURL);
+        printLogMessage("Went to URL: " + envURL);
     }
 
     public void takeScreenshot(String name)
@@ -313,6 +314,7 @@ public class Selenium_Master
         {
             e.printStackTrace();
         }
+        printLogMessage("Took a screenshot");
     }
 
     public String getCurrentUrl()
@@ -325,6 +327,7 @@ public class Selenium_Master
         waitFor(2);
         ArrayList<String> tabs = new ArrayList<> (driver.getWindowHandles());
         driver.switchTo().window(tabs.get(i));
+        printLogMessage("Went to tab " + (i+1));
     }
 
 

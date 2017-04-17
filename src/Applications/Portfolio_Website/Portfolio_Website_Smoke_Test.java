@@ -78,10 +78,10 @@ public class Portfolio_Website_Smoke_Test
         user.Index_Page.clickLinkedInButton();
 
         //ER6
-        expectedResult = "https://www.linkedin.com/in/codynicholson/";
+        expectedResult = "www.linkedin.com";
         actualResult = user.getCurrentUrl();
         failureDetails = "ER6: The url address was incorrect after clicking the 'LinkedIn' button. Expected: " + expectedResult + ", Actual: " + actualResult;
-        Assert.assertTrue(expectedResult.contains(actualResult), failureDetails);
+        Assert.assertTrue(actualResult.contains(expectedResult), failureDetails);
 
         user.closeTab();
 
@@ -99,24 +99,39 @@ public class Portfolio_Website_Smoke_Test
     @Test
     public void testIndexPageContactMe() {
         parentName = "Portfolio_Smoke_Test";
+        String name = "Automated Test";
+        String message = "This message was sent by a selenium automated test case";
+        String email = "automatedTest@codynicholson.github.io";
+        String feedback = "This website looks nice";
 
         user.goToPortfolioWebsite();
+
+        //ER1
+        failureDetails = "ER1: The 'Contact Me' model was displayed before clicking the 'Contact Me' button";
+        Assert.assertFalse(user.Index_Page.isContactMeModelDisplayed(), failureDetails);
+
         user.Index_Page.clickContactMeButton();
 
-        //ER8
-        failureDetails = "ER8: The 'Contact Me' model did not display after clicking the 'Contact Me' button";
+        //ER2
+        failureDetails = "ER2: The 'Contact Me' model did not display after clicking the 'Contact Me' button";
         Assert.assertTrue(user.Index_Page.isContactMeModelDisplayed(), failureDetails);
+
+        user.Index_Page.setNameInContactMe(name);
+        user.Index_Page.setMessageInContactMe(message);
+        user.Index_Page.setEmailInContactMe(email);
+        user.Index_Page.setFeedbackInContactMe(feedback);
+        user.Index_Page.clickSubmit();
+
+        //ER3
+        expectedResult = "https://formspree.io/codynicholson96@gmail.com";
+        actualResult = user.getCurrentUrl();
+        failureDetails = "ER3: The formspree 'Im not a robot' page did not display after clicking the 'Submit' button on the form. Expected: " + expectedResult + ", Actual: " + actualResult;
+        Assert.assertTrue(expectedResult.equals(actualResult), failureDetails);
     }
 
     /**********************
      ***   Annotations   ***
      **********************/
-
-    @BeforeTest
-    void doThisBeforeRunningAnyTests()
-    {
-        user.setupWebDriverForChromeTesting();
-    }
 
     @AfterTest
     void doThisAfterAllTestsFinish()
@@ -130,6 +145,7 @@ public class Portfolio_Website_Smoke_Test
     public void doThisBeforeEachTestStarts(Method method)
     {
         testName = method.getName();
+        user.setupWebDriverForChromeTesting();
     }
 
     @AfterMethod(alwaysRun = true) public void doThisAfterEachTestFinishes(ITestResult result)
