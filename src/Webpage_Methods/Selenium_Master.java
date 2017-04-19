@@ -36,17 +36,6 @@ public class Selenium_Master
 
     public Selenium_Master user = this;
 
-    private static Webpage_Methods.Selenium_Master instance = null;
-
-    public static Webpage_Methods.Selenium_Master getInstance()
-    {
-        if (instance == null)
-        {
-            instance = new Webpage_Methods.Selenium_Master();
-        }
-        return instance;
-    }
-
 
 
     // Setting up WebDriver
