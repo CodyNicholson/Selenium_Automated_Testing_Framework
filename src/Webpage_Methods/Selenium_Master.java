@@ -30,14 +30,6 @@ import org.testng.Assert;
 
 public class Selenium_Master
 {
-    // Singleton setup
-
-    public Selenium_Master(){}
-
-    public Selenium_Master user = this;
-
-
-
     // Setting up WebDriver
 
     public static WebDriver driver;

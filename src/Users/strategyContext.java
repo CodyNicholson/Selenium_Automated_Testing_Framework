@@ -4,7 +4,7 @@ import Users.strategies.codyStrategy;
 
 public class strategyContext {
 
-    /*********************************************
+    /**********************************************
      ***                  Users                 ***
      *                                            *
      * Create your strategy                       *
@@ -37,5 +37,4 @@ public class strategyContext {
     {
         return strategy.getTestResultsPath();
     }
-
 }
