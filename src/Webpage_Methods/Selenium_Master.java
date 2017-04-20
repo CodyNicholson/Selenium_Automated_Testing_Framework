@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 // Org.openqa imports
+import Test_Docs.File_Paths;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,11 +22,7 @@ import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.DataFormatter;
 
 // User imports
-import Users.strategyContext;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.testng.Assert;
 
 public class Selenium_Master
@@ -34,7 +31,7 @@ public class Selenium_Master
 
     public static WebDriver driver;
 
-    private strategyContext context = new strategyContext();
+    private File_Paths filePaths = new File_Paths();
 
     public WebDriver getWebDriver()
     {
@@ -46,7 +43,7 @@ public class Selenium_Master
         System.setProperty("webdriver.chrome.driver", "jars/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
-        chromeOptions.setBinary(context.chromeApplicationPath());
+        chromeOptions.setBinary(filePaths.getChromeApplicationPath());
         driver = new ChromeDriver(chromeOptions);
     }
 

@@ -14,12 +14,12 @@ import  org.apache.poi.hssf.usermodel.HSSFSheet;
 import  org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import  org.apache.poi.hssf.usermodel.HSSFRow;
 
-import Users.strategyContext;
+import Test_Docs.File_Paths;
 import org.apache.poi.hssf.util.HSSFColor;
 
 public class Results_Generator
 {
-    private static strategyContext strategy = new strategyContext();
+    private static File_Paths strategy = new File_Paths();
     private static String testSuiteName = "";
 
     //Test Data
@@ -39,7 +39,7 @@ public class Results_Generator
             String time = timeFormat.format(timeObj);
 
             //Create excel file with date included in the title
-            String fileName = strategy.getTestResultPath() + testSuiteName + "_" + time + ".xls" ;
+            String fileName = strategy.getTestResultsPath() + testSuiteName + "_" + time + ".xls" ;
 
             //Create the workbook and sheet
             HSSFWorkbook workbook = new HSSFWorkbook();

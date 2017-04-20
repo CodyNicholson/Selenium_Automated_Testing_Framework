@@ -1,7 +1,7 @@
 package Applications.Portfolio_Website;
 
 import Results.Results_Generator.*;
-import Users.strategyContext;
+import Test_Docs.File_Paths;
 import Webpage_Methods.Portfolio_Website.Portfolio_Master;
 import org.openqa.selenium.UnhandledAlertException;
 import org.testng.Assert;
@@ -12,7 +12,7 @@ import org.testng.annotations.*;
 public class Portfolio_Website_Smoke_Test
 {
     private final Portfolio_Master user      = new Portfolio_Master();
-    private final strategyContext strategy   = new strategyContext();
+    private final File_Paths filePaths   = new File_Paths();
     private Results_Generator excelCreator   = new Results_Generator();
 
     // Excel strings
