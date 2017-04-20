@@ -30,10 +30,11 @@
       <file leaf-file-name="Portfolio_Website_Smoke_Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Applications/Portfolio_Website/Portfolio_Website_Smoke_Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-227">
-              <caret line="68" column="41" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="41" />
+            <state relative-caret-position="252">
+              <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
               <folding>
                 <element signature="docComment;field#envUrl#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+                <element signature="method#testIndexPageButtons#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
                 <element signature="method#testIndexPageContactMe#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
                 <element signature="docComment;method#doThisAfterAllTestsFinish#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
                 <element signature="method#doThisAfterAllTestsFinish#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
@@ -44,10 +45,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Selenium_Master.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="codyStrategy.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Users/strategies/codyStrategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" column="102" selection-start-line="9" selection-start-column="102" selection-end-line="9" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Selenium_Master.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Webpage_Methods/Selenium_Master.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
+            <state relative-caret-position="572">
               <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
               <folding>
                 <element signature="method#setupWebDriverForChromeTesting#0;class#Selenium_Master#0" expanded="false" />
@@ -138,11 +149,11 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/org/testng/annotations/SetupBefore.java" />
         <option value="$PROJECT_DIR$/src/Webpage_Methods/Portfolio_Website/Pages/Index.java" />
-        <option value="$PROJECT_DIR$/src/Applications/Portfolio_Website/Portfolio_Website_Smoke_Test.java" />
         <option value="$PROJECT_DIR$/src/org/testng/annotations/Annotations.java" />
-        <option value="$PROJECT_DIR$/src/Users/strategies/codyStrategy.java" />
         <option value="$PROJECT_DIR$/src/Users/strategyContext.java" />
         <option value="$PROJECT_DIR$/src/Webpage_Methods/Selenium_Master.java" />
+        <option value="$PROJECT_DIR$/src/Applications/Portfolio_Website/Portfolio_Website_Smoke_Test.java" />
+        <option value="$PROJECT_DIR$/src/Users/strategies/codyStrategy.java" />
       </list>
     </option>
   </component>
@@ -200,8 +211,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -226,27 +237,7 @@
       <recent name="C:\Users\cad5124\Desktop\Automation\Automation_Project" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Portfolio_Website_Smoke_Test">
-    <configuration default="false" name="Create_Account_Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Applications.CreateAccount.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="Applications.CreateAccount.Create_Account_Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="DMF_Automation_Framework" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="TestNG.Portfolio_Website_Smoke_Test.testGetPath">
     <configuration default="false" name="Portfolio_Website_Smoke_Test.testViewDocument_1" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -360,6 +351,39 @@
       <option name="PACKAGE_NAME" value="Applications.Portfolio_Website" />
       <option name="MAIN_CLASS_NAME" value="Applications.Portfolio_Website.Portfolio_Website_Smoke_Test" />
       <option name="METHOD_NAME" value="testIndexPageContactMe" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="false" name="Portfolio_Website_Smoke_Test.testGetPath" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Applications.Portfolio_Website.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Selenium_Functional_Automated_Testing" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="Applications.Portfolio_Website" />
+      <option name="MAIN_CLASS_NAME" value="Applications.Portfolio_Website.Portfolio_Website_Smoke_Test" />
+      <option name="METHOD_NAME" value="testGetPath" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -855,19 +879,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Create_Account_Main" />
-      <item index="1" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testViewDocument_1" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testIndexPageButtons" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test" />
-      <item index="4" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testIndexPageContactMe" />
+      <item index="0" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testViewDocument_1" />
+      <item index="1" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testIndexPageButtons" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test" />
+      <item index="3" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testIndexPageContactMe" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testGetPath" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testIndexPageContactMe" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testIndexPageButtons" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testViewDocument_1" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Create_Account_Main" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testGetPath" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testIndexPageContactMe" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testIndexPageButtons" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG.Portfolio_Website_Smoke_Test.testViewDocument_1" />
       </list>
     </recent_temporary>
   </component>
@@ -903,18 +927,19 @@
       <workItem from="1492637003343" duration="15000" />
       <workItem from="1492637071063" duration="116000" />
       <workItem from="1492642402389" duration="308000" />
+      <workItem from="1492650161709" duration="186000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Portfolio_Website_Smoke_Test - 2017.04.18 at 19h 44m 34s.xml">
-      <configuration name="Portfolio_Website_Smoke_Test" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="Portfolio_Website_Smoke_Test - 2017.04.18 at 19h 50m 21s.xml">
       <configuration name="Portfolio_Website_Smoke_Test" configurationId="TestNG" />
     </history-entry>
     <history-entry file="Portfolio_Website_Smoke_Test - 2017.04.19 at 17h 54m 41s.xml">
       <configuration name="Portfolio_Website_Smoke_Test" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="Portfolio_Website_Smoke_Test_testGetPath - 2017.04.19 at 20h 04m 15s.xml">
+      <configuration name="Portfolio_Website_Smoke_Test.testGetPath" configurationId="TestNG" />
     </history-entry>
     <history-entry file="Portfolio_Website_Smoke_Test_testIndexPageContactMe - 2017.04.17 at 11h 21m 10s.xml">
       <configuration name="Portfolio_Website_Smoke_Test.testIndexPageContactMe" configurationId="TestNG" />
@@ -939,7 +964,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20609000" />
+    <option name="totallyTimeSpent" value="20795000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -952,8 +977,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36553237" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36553237" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1060,6 +1085,7 @@
           <caret line="22" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="docComment;field#envUrl#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+            <element signature="method#testIndexPageButtons#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
             <element signature="method#testIndexPageContactMe#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
             <element signature="docComment;method#doThisAfterAllTestsFinish#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
             <element signature="method#doThisAfterAllTestsFinish#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
@@ -1125,13 +1151,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Users/strategies/codyStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Users/strategyContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -1154,24 +1173,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Applications/Portfolio_Website/Portfolio_Website_Smoke_Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-227">
-          <caret line="68" column="41" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="41" />
-          <folding>
-            <element signature="docComment;field#envUrl#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
-            <element signature="method#testIndexPageContactMe#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
-            <element signature="docComment;method#doThisAfterAllTestsFinish#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
-            <element signature="method#doThisAfterAllTestsFinish#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
-            <element signature="method#doThisBeforeEachTestStarts#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
-            <element signature="method#doThisAfterEachTestFinishes#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Webpage_Methods/Selenium_Master.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
+        <state relative-caret-position="572">
           <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
           <folding>
             <element signature="method#setupWebDriverForChromeTesting#0;class#Selenium_Master#0" expanded="false" />
@@ -1195,6 +1199,30 @@
             <element signature="method#switchToTab#0;class#Selenium_Master#0" expanded="false" />
             <element signature="method#readExcelFileRows#0;class#Selenium_Master#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Applications/Portfolio_Website/Portfolio_Website_Smoke_Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;field#envUrl#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+            <element signature="method#testIndexPageButtons#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+            <element signature="method#testIndexPageContactMe#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+            <element signature="docComment;method#doThisAfterAllTestsFinish#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+            <element signature="method#doThisAfterAllTestsFinish#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+            <element signature="method#doThisBeforeEachTestStarts#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+            <element signature="method#doThisAfterEachTestFinishes#0;class#Portfolio_Website_Smoke_Test#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Users/strategies/codyStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="102" selection-start-line="9" selection-start-column="102" selection-end-line="9" selection-end-column="102" />
+          <folding />
         </state>
       </provider>
     </entry>
