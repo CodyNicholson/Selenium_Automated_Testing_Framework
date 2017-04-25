@@ -29,7 +29,7 @@ public class Results_Generator
     private ArrayList<String> testCaseRuntimes  = new ArrayList<>();
     private String totalRuntime = "";
 
-    public String createTestResultsSpreadsheet()
+    public void createTestResultsSpreadsheet()
     {
         try
         {
@@ -187,7 +187,7 @@ public class Results_Generator
         {
             e.printStackTrace();
         }
-        return "test documented";
+        System.out.println("test documented");
     }
 
     /*************************

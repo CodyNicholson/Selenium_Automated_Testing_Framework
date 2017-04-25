@@ -25,7 +25,7 @@ import org.apache.poi.ss.usermodel.DataFormatter;
 
 import org.testng.Assert;
 
-public class Selenium_Master
+public class Webpage_Methods_Master
 {
     // Setting up WebDriver
 

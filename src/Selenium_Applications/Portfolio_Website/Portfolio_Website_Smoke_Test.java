@@ -1,36 +1,11 @@
-package Applications.Portfolio_Website;
+package Selenium_Applications.Portfolio_Website;
 
-import Results.Results_Generator.*;
-import Test_Docs.File_Paths;
-import Webpage_Methods.Portfolio_Website.Portfolio_Master;
-import org.openqa.selenium.UnhandledAlertException;
+import Selenium_Applications.Selenium_Application_Master;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import java.lang.reflect.Method;
 import org.testng.annotations.*;
 
-public class Portfolio_Website_Smoke_Test
+public class Portfolio_Website_Smoke_Test extends Selenium_Application_Master
 {
-    private final Portfolio_Master user      = new Portfolio_Master();
-    private final File_Paths filePaths   = new File_Paths();
-    private Results_Generator excelCreator   = new Results_Generator();
-
-    // Excel strings
-    private String testName         = "";
-    private String parentName       = "";
-    private String expectedResult   = "";
-    private String actualResult     = "";
-    private String failureDetails   = "";
-
-
-    // Runtime
-    private long runTime;
-    private long totalRuntime;
-
-    /*************************
-    ***     Smoke Test     ***
-    *************************/
-
     String envUrl = "https://codynicholson.github.io/";
 
     @Test
@@ -129,49 +104,11 @@ public class Portfolio_Website_Smoke_Test
         Assert.assertTrue(expectedResult.equals(actualResult), failureDetails);
     }
 
-    /**********************
-     ***   Annotations   ***
-     **********************/
-
     @AfterTest
     void doThisAfterAllTestsFinish()
     {
         excelCreator.setTotalRuntime(Long.toString(totalRuntime));
         excelCreator.setClassName(this.getClass().getName());
         excelCreator.createTestResultsSpreadsheet();
-    }
-
-    @BeforeMethod
-    public void doThisBeforeEachTestStarts(Method method)
-    {
-        testName = method.getName();
-        user.setupWebDriverForChromeTesting();
-    }
-
-    @AfterMethod(alwaysRun = true) public void doThisAfterEachTestFinishes(ITestResult result)
-    {
-        runTime = ((result.getEndMillis() - result.getStartMillis()) / 1000);
-        totalRuntime += runTime;
-        excelCreator.getTestCaseRuntimes().add(Long.toString(runTime));
-        excelCreator.getTestCaseNames().add(testName);
-        excelCreator.getTestCaseParents().add(this.parentName);
-        if(ITestResult.FAILURE == result.getStatus())
-        {
-            try{
-                user.takeScreenshot(testName);}
-            catch(UnhandledAlertException e){e.printStackTrace();}
-            if (failureDetails.equals("")){
-                excelCreator.getTestCaseResults().add("ER0: Never reached first check");
-            }
-            else{
-                excelCreator.getTestCaseResults().add(failureDetails);
-            }
-        }
-        else
-        {
-            excelCreator.getTestCaseResults().add("N/A");
-        }
-        failureDetails = "";
-        user.closeBrowser();
     }
 }
